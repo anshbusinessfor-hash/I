@@ -1,0 +1,64 @@
+{
+  "app_categories": [
+    {
+      "category": "Social",
+      "subcategories": [
+        "Chat App",
+        "Video Calling App",
+        "Social Media Feed",
+        "Stories-Based App",
+        "AI Friend App"
+      ]
+    },
+    {
+      "category": "E-Commerce",
+      "subcategories": [
+        "Shopping App",
+        "Grocery App",
+        "Dropshipping App",
+        "Local Store Delivery App",
+        "Second-Hand Marketplace"
+      ]
+    },
+    {
+      "category": "Finance",
+      "subcategories": [
+        "Expense Tracker",
+        "UPI-Like App",
+        "Wallet App",
+        "EMI Manager App",
+        "Crypto Portfolio Tracker"
+      ]
+    },
+    {
+      "category": "AI Tools",
+      "subcategories": [
+        "AI Chatbot",
+        "AI Image Generator",
+        "AI Voice Assistant",
+        "AI Code Generator",
+        "AI App Builder"
+      ]
+    },
+    {
+      "category": "Entertainment",
+      "subcategories": [
+        "Music Player",
+        "Short Video App",
+        "Streaming App",
+        "Game Launcher",
+        "Podcast Hub"
+      ]
+    },
+    {
+      "category": "Education",
+      "subcategories": [
+        "Learning App",
+        "Notes App",
+        "Quiz App",
+        "Video Courses App",
+        "Assignment Scanner"
+      ]
+    }
+  ]
+}
