@@ -1,0 +1,72 @@
+{
+  "final_output_generator": {
+    "description": "Defines how the AI should output the final build package so the backend can create files/folders correctly.",
+
+    "output_format": {
+      "project_id": "generated automatically",
+      "project_type": "website | mobile_app | dashboard | backend_api | ai_agent",
+
+      "structure": {
+        "folders": ["src", "assets", "components"],
+        "files": [
+          {
+            "path": "index.html",
+            "content": "string"
+          },
+          {
+            "path": "style.css",
+            "content": "string"
+          },
+          {
+            "path": "src/app.js",
+            "content": "string"
+          }
+        ]
+      },
+
+      "metadata": {
+        "app_title": "string",
+        "primary_color": "string or hex",
+        "secondary_color": "string or hex",
+        "framework": "React | Next.js | React Native | Flutter | Vanilla HTML | Express"
+      }
+    },
+
+    "rules": {
+      "never_output_explanations": true,
+      "only_output_json": true,
+      "json_must_be_valid": true,
+      "no_comments_allowed": true,
+      "no_extra_text": true,
+      "content_should_match_blueprint": true
+    },
+
+    "examples": {
+      "website_example": {
+        "project_type": "website",
+        "structure": {
+          "folders": ["src"],
+          "files": [
+            {
+              "path": "index.html",
+              "content": "<html><body><h1>Hello World</h1></body></html>"
+            }
+          ]
+        }
+      },
+
+      "mobile_app_example": {
+        "project_type": "mobile_app",
+        "structure": {
+          "folders": ["components", "screens"],
+          "files": [
+            {
+              "path": "App.js",
+              "content": "export default function App() { return null }"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
