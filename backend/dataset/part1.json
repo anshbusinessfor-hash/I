@@ -1,0 +1,72 @@
+{
+  "dataset_part": "1",
+  "type": "website_templates",
+  "examples": [
+
+    {
+      "prompt": "Create a modern landing page for a startup.",
+      "architecture": {
+        "framework": "HTML + TailwindCSS",
+        "sections": ["Navbar", "Hero", "Features", "Pricing", "Testimonials", "Footer"]
+      },
+      "output_files": {
+        "index.html": "<!DOCTYPE html> ... (full professional landing page code)",
+        "style.css": "/* Tailwind can be CDN or custom animations */"
+      },
+      "notes": "Always use modern UI, gradients, rounded-xl, shadow-lg, hover effects."
+    },
+
+    {
+      "prompt": "Build a portfolio website for a developer.",
+      "architecture": {
+        "framework": "HTML + CSS + JS",
+        "sections": ["Navbar", "Hero", "Skills", "Projects Grid", "Contact Form", "Footer"]
+      },
+      "output_files": {
+        "index.html": "<!DOCTYPE html> ... (clean dark theme portfolio code)",
+        "script.js": "document.addEventListener('scroll', ... )"
+      },
+      "notes": "Use animations like fade-in-up, typing effect, scrolling reveal."
+    },
+
+    {
+      "prompt": "Create an eCommerce homepage.",
+      "architecture": {
+        "framework": "HTML + Tailwind",
+        "sections": ["Navbar", "Hero with product", "Product grid", "Categories", "Testimonials", "Footer"]
+      },
+      "output_files": {
+        "index.html": "<!DOCTYPE html> ...",
+        "style.css": "..."
+      },
+      "notes": "Use card hover animations, product grid, CTA buttons."
+    },
+
+    {
+      "prompt": "Build a SaaS website.",
+      "architecture": {
+        "framework": "HTML + Tailwind",
+        "sections": ["Navbar", "Hero", "Features icons", "Pricing plans", "FAQ", "Footer"]
+      },
+      "output_files": {
+        "index.html": "<html>...</html>",
+        "style.css": "/* Custom animations */"
+      },
+      "notes": "Use gradient backgrounds, blurred blobs, floating cards."
+    },
+
+    {
+      "prompt": "Create a business website for a hotel.",
+      "architecture": {
+        "framework": "HTML + CSS",
+        "sections": ["Header", "Rooms", "Gallery", "Booking Form", "Testimonials", "Footer"]
+      },
+      "output_files": {
+        "index.html": "<!DOCTYPE html> ...",
+        "style.css": "body { font-family: Inter; } ..."
+      },
+      "notes": "Use large images, smooth transitions, elegant layout."
+    }
+
+  ]
+}
