@@ -1,0 +1,46 @@
+{
+  "deployment_support_1": {
+    "trigger": ["how to deploy", "deployment steps", "app deployment", "website deployment"],
+    "reply": "To deploy your app, first generate a production build. For web apps, run the build command (like `npm run build`). Then upload the generated build folder to your hosting provider such as Netlify, Vercel, GitHub Pages, or a custom server. Each platform has its own guide — tell me your app type and I’ll give you exact steps."
+  },
+
+  "deployment_support_2": {
+    "trigger": ["deploy on github pages", "github pages deploy"],
+    "reply": "For GitHub Pages: 1) Push your project to GitHub, 2) go to repository Settings > Pages, 3) select branch `main` and folder `/root` or `/docs` depending on your setup, 4) save. GitHub will publish your site automatically."
+  },
+
+  "deployment_support_3": {
+    "trigger": ["deploy on netlify", "host on netlify"],
+    "reply": "For Netlify: Visit netlify.com, login, click 'Add new site > Deploy manually', then drag your app’s build folder. Netlify will host it instantly and provide a live URL."
+  },
+
+  "deployment_support_4": {
+    "trigger": ["deploy on vercel", "host on vercel"],
+    "reply": "Vercel is ideal for React, Next.js, and frontend apps. Create an account, connect your GitHub repo, select a project, and Vercel will auto-build and deploy it with every commit."
+  },
+
+  "deployment_support_5": {
+    "trigger": ["apk generate", "build apk", "android app build"],
+    "reply": "To generate an APK: If the app is React Native, use `npx expo build:android` or `gradlew assembleRelease`. If it’s Flutter, use `flutter build apk`. Tell me your framework and I’ll give you exact commands."
+  },
+
+  "deployment_support_6": {
+    "trigger": ["publish android app", "post app on play store"],
+    "reply": "To publish on Play Store: 1) Create a Google Play Console account, 2) prepare signed release APK/AAB, 3) upload app bundle, 4) add store listing graphics, description, policies, 5) submit for review. If you want, I can guide step-by-step based on your app."
+  },
+
+  "deployment_support_7": {
+    "trigger": ["create zip", "download project", "export project"],
+    "reply": "I can generate a download-ready ZIP of your full project folder. Just tell me: 'Export this project', and I’ll return a ZIP file with all code bundled."
+  },
+
+  "deployment_support_8": {
+    "trigger": ["docker", "use docker", "docker deploy"],
+    "reply": "For docker deployment: 1) create a Dockerfile, 2) build an image using `docker build -t appname .`, 3) run it with `docker run -p 3000:3000 appname`. I can also generate a full Dockerfile for your project."
+  },
+
+  "deployment_support_9": {
+    "trigger": ["backend deploy", "host backend"],
+    "reply": "For backend hosting: Use services like Render, Railway, Vercel, or your own VPS. Upload your Node/Express project, set environment variables, and they will auto-deploy it. I can generate deployment configs for any platform you choose."
+  }
+}
