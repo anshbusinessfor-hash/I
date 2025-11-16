@@ -1,0 +1,111 @@
+{
+  "backend_blueprints": {
+    "rules": {
+      "1": "If the user asks for backend, always ask which database they prefer: MongoDB, Firebase, Supabase, or Local JSON.",
+      "2": "If user does NOT specify, choose MongoDB by default.",
+      "3": "Every backend must include routes, controllers, models, middleware folder.",
+      "4": "AI must always return final output as JSON of files in correct folder structure.",
+      "5": "Backend must ALWAYS be runnable with no missing imports.",
+      "6": "If user asks for login/register system → add JWT Auth automatically.",
+      "7": "Always include server.js at root.",
+      "8": "Always include a README.md with install & run instructions.",
+      "9": "Never use placeholder pseudocode. Always give full code.",
+      "10": "If building custom APIs (ex: chat, todo, shopping), create CRUD routes automatically."
+    },
+
+    "folder_structure": {
+      "node_express_mongo": [
+        "server.js",
+        "package.json",
+        "config/db.js",
+        "routes/*.js",
+        "controllers/*.js",
+        "models/*.js",
+        "middleware/auth.js"
+      ],
+      "firebase": [
+        "firebase.json",
+        "functions/index.js",
+        "functions/package.json"
+      ],
+      "supabase": [
+        "supabase/config.json",
+        "supabase/schema.sql",
+        "src/server.js",
+        "src/routes/*.js"
+      ]
+    },
+
+    "templates": {
+      "auth_system": {
+        "description": "Full JWT Auth system",
+        "endpoints": [
+          "POST /auth/register",
+          "POST /auth/login",
+          "GET /auth/me"
+        ]
+      },
+      "todo_api": {
+        "description": "Todo REST API",
+        "endpoints": [
+          "GET /todos",
+          "POST /todos",
+          "PUT /todos/:id",
+          "DELETE /todos/:id"
+        ]
+      },
+      "ecommerce_api": {
+        "description": "Products + Cart + Orders",
+        "endpoints": [
+          "GET /products",
+          "POST /products",
+          "GET /cart",
+          "POST /cart",
+          "POST /order"
+        ]
+      },
+      "chat_api": {
+        "description": "Chat messages API",
+        "endpoints": [
+          "GET /messages",
+          "POST /messages"
+        ]
+      }
+    },
+
+    "node_mongo_base_code": {
+      "server.js": "const express = require('express');\nconst cors = require('cors');\nconst mongoose = require('mongoose');\nrequire('dotenv').config();\nconst app = express();\napp.use(cors());\napp.use(express.json());\nmongoose.connect(process.env.MONGO_URL).then(()=>console.log('MongoDB Connected')).catch(err=>console.log(err));\napp.get('/', (req,res)=>res.send('API Running'));\napp.use('/auth', require('./routes/authRoutes'));\napp.use('/todos', require('./routes/todoRoutes'));\nconst PORT = process.env.PORT || 5000;\napp.listen(PORT, ()=>console.log('Server running on', PORT));",
+
+      "config/db.js": "const mongoose = require('mongoose');\nconst connectDB = async()=>{ try{ await mongoose.connect(process.env.MONGO_URL); console.log('Mongo Connected'); } catch(err){ console.log(err); }};\nmodule.exports = connectDB;",
+
+      "models/User.js": "const mongoose = require('mongoose');\nconst UserSchema = new mongoose.Schema({ name:String, email:{type:String, unique:true}, password:String });\nmodule.exports = mongoose.model('User', UserSchema);",
+
+      "middleware/auth.js": "const jwt = require('jsonwebtoken');\nmodule.exports = function(req,res,next){ const token = req.header('x-auth-token'); if(!token) return res.status(401).send('No token'); try{ const decoded = jwt.verify(token, process.env.JWT_SECRET); req.user = decoded.id; next(); }catch(err){ res.status(400).send('Invalid token'); }}",
+
+      "routes/authRoutes.js": "const router = require('express').Router();\nconst bcrypt = require('bcryptjs');\nconst jwt = require('jsonwebtoken');\nconst User = require('../models/User');\nconst auth = require('../middleware/auth');\nrouter.post('/register', async(req,res)=>{ const {name,email,password} = req.body; const exist = await User.findOne({email}); if(exist) return res.status(400).send('User exists'); const hash = await bcrypt.hash(password,10); const user = await User.create({name,email,password:hash}); res.send(user); });\nrouter.post('/login', async(req,res)=>{ const {email,password} = req.body; const user = await User.findOne({email}); if(!user) return res.status(400).send('Invalid'); const match = await bcrypt.compare(password,user.password); if(!match) return res.status(400).send('Invalid'); const token = jwt.sign({id:user._id}, process.env.JWT_SECRET); res.send({token}); });\nrouter.get('/me', auth, async(req,res)=>{ const user = await User.findById(req.user).select('-password'); res.send(user); });\nmodule.exports = router;",
+
+      "routes/todoRoutes.js": "const router = require('express').Router();\nconst Todo = require('../models/Todo');\nrouter.get('/', async(req,res)=>{ res.send(await Todo.find()); });\nrouter.post('/', async(req,res)=>{ const todo = await Todo.create(req.body); res.send(todo); });\nrouter.put('/:id', async(req,res)=>{ const updated = await Todo.findByIdAndUpdate(req.params.id, req.body, {new:true}); res.send(updated); });\nrouter.delete('/:id', async(req,res)=>{ await Todo.findByIdAndDelete(req.params.id); res.send({success:true}); });\nmodule.exports = router;",
+
+      "models/Todo.js": "const mongoose = require('mongoose');\nconst TodoSchema = new mongoose.Schema({ title:String, completed:{type:Boolean,default:false} });\nmodule.exports = mongoose.model('Todo', TodoSchema);"
+    },
+
+    "firebase_template": {
+      "firebase.json": "{ \"functions\": { \"source\": \"functions\" } }",
+      "functions/index.js": "const functions = require('firebase-functions');\nconst admin = require('firebase-admin');\nadmin.initializeApp();\nexports.hello = functions.https.onRequest((req,res)=>{ res.send('Hello from Firebase!'); });",
+      "functions/package.json": "{ \"dependencies\": { \"firebase-admin\": \"latest\", \"firebase-functions\": \"latest\" } }"
+    },
+
+    "supabase_template": {
+      "config.json": "{ \"project_id\": \"replace_me\", \"database\": \"supabase\" }",
+      "schema.sql": "create table users ( id uuid default gen_random_uuid() primary key, name text );",
+      "server.js": "const express = require('express');\nconst { createClient } = require('@supabase/supabase-js');\nrequire('dotenv').config();\nconst app = express();\napp.use(express.json());\nconst supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);\napp.get('/', (req,res)=>res.send('Supabase API Running'));\nconst PORT = 5000;\napp.listen(PORT, ()=>console.log('Running on', PORT));"
+    },
+
+    "output_rules": {
+      "1": "The AI must always return file JSON like {\"server.js\": \"code...\", \"routes/auth.js\": \"code...\"}",
+      "2": "Never output explanations.",
+      "3": "Backend must start instantly after npm install.",
+      "4": "All environment variables must be included in a .env template."
+    }
+  }
+}
