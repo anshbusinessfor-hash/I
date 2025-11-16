@@ -1,0 +1,165 @@
+{
+  "category": "app_category_library",
+  "dialogs": [
+    {
+      "category": "AI Chat Apps",
+      "user": "I want to build an AI chat app",
+      "assistant": "Great! What type of AI chat do you want: personal assistant, coding assistant, therapy chat, or fun chatbot?",
+      "follow_up": [
+        "Should conversations be saved?",
+        "Do you want voice-to-text?",
+        "Do you want dark mode only or both light & dark?"
+      ]
+    },
+    {
+      "category": "Shopping / Ecommerce",
+      "user": "Make a shopping app",
+      "assistant": "Nice! What shop type: clothes, electronics, grocery, cosmetics, or mixed products?",
+      "follow_up": [
+        "Do you want cart + checkout?",
+        "Do you want login via Google only?",
+        "Should sellers upload products or only admin?"
+      ]
+    },
+    {
+      "category": "Finance / Money",
+      "user": "I want a finance app",
+      "assistant": "Sure. What type: expense tracker, EMI calculator, saving goals, wallet app, or UPI-style payments?",
+      "follow_up": [
+        "Should users see monthly reports?",
+        "Do you want login or no-login app?",
+        "Do you want ads or premium model?"
+      ]
+    },
+    {
+      "category": "Music / Voice",
+      "user": "I want an app like Spotify",
+      "assistant": "Great! Do you want streaming from server, offline downloads, or only playlists?",
+      "follow_up": [
+        "Should singers upload songs?",
+        "Should users earn money per stream?",
+        "You want waveform animations?"
+      ]
+    },
+    {
+      "category": "Games",
+      "user": "I want a simple game app",
+      "assistant": "Which type: puzzle, runner, quiz, tapping game, or card game?",
+      "follow_up": [
+        "Do you want scoring system?",
+        "Should there be levels?",
+        "Do you need sound effects?"
+      ]
+    },
+    {
+      "category": "Education / Learning",
+      "user": "I want an educational app",
+      "assistant": "Nice! What type: notes app, quiz app, learning videos, coding learning, or assignment helper?",
+      "follow_up": [
+        "Should students login?",
+        "Do you want teacher dashboard?",
+        "Should progress be tracked?"
+      ]
+    },
+    {
+      "category": "Health & Fitness",
+      "user": "Make me a fitness app",
+      "assistant": "Sure! What focus: workouts, yoga, diet planner, calorie tracker, or steps counter?",
+      "follow_up": [
+        "Should exercise videos be included?",
+        "Do you want custom plans?",
+        "Do you want notifications?"
+      ]
+    },
+    {
+      "category": "Social Media",
+      "user": "I want an app like Instagram",
+      "assistant": "Nice choice! Should it allow posts, reels, stories, or all three?",
+      "follow_up": [
+        "Should users chat?",
+        "Do you want notifications?",
+        "Should videos auto-play?"
+      ]
+    },
+    {
+      "category": "Content Creator Tools",
+      "user": "I want video editing app",
+      "assistant": "Do you want simple editing, templates, music sync, or AI auto-editing?",
+      "follow_up": [
+        "Should users import audio?",
+        "Do you want export in multiple ratios?",
+        "Should there be transitions and effects?"
+      ]
+    },
+    {
+      "category": "Business Apps",
+      "user": "Make a business management app",
+      "assistant": "Okay! What function: staff attendance, customer tracking, orders, billing, or inventory?",
+      "follow_up": [
+        "Should there be admin panel?",
+        "Do you want analytics?",
+        "Do you want login with Google?"
+      ]
+    },
+    {
+      "category": "Portfolio / Personal Brand",
+      "user": "Make me a portfolio app",
+      "assistant": "Great! What sections: about, skills, projects, contact, resume download?",
+      "follow_up": [
+        "Do you want animations?",
+        "Do you like dark theme?",
+        "Should it be one-page or multi-page?"
+      ]
+    },
+    {
+      "category": "News / Blog",
+      "user": "I want a news app",
+      "assistant": "Sure. Should news come from API, your database, or manually added?",
+      "follow_up": [
+        "Do you want categories?",
+        "Should users save news?",
+        "Do you want notifications?"
+      ]
+    },
+    {
+      "category": "Dating Apps",
+      "user": "I want a dating app",
+      "assistant": "Alright. Should users swipe like Tinder or browse profiles normally?",
+      "follow_up": [
+        "Do you want match system?",
+        "Do users chat only after matching?",
+        "Do you want verification?"
+      ]
+    },
+    {
+      "category": "Booking Apps",
+      "user": "I want an appointment booking app",
+      "assistant": "Good choice! What kind: doctor, salon, coach, tutor, or mechanic?",
+      "follow_up": [
+        "Do you want calendar view?",
+        "Should users pay online?",
+        "Do you want reminders?"
+      ]
+    },
+    {
+      "category": "Local Services",
+      "user": "I want to build an app for local services",
+      "assistant": "What service: home cleaning, electrician, plumber, carpenter, or mixed?",
+      "follow_up": [
+        "Should workers have profiles?",
+        "Do you want location tracking?",
+        "Should users rate workers?"
+      ]
+    },
+    {
+      "category": "Utility Tools",
+      "user": "Make me a tool app",
+      "assistant": "Which tool: scanner, calculator, notes, QR generator, or translator?",
+      "follow_up": [
+        "Do you want offline only?",
+        "Should files be saved?",
+        "Do you want themes?"
+      ]
+    }
+  ]
+}
